@@ -10,14 +10,13 @@ void show_help()
 	printf("Usage :-\n"
 				"pac [operation] <pkg list>\n"
 				"\n"
-				"install --> Install the specified program.\n"
+				"install        --> Install the specified program.\n"
 				"remove/delete  --> Removes the specified program with dependencies.\n"
 				"search/find    --> Searches for a package in package lists.\n"
 				"refresh/sync   --> Refreshes package lists.\n"
 				"upgrade/update --> Updates all packages to latest version.\n"
 				"clean          --> Removes cached package downloads.\n"
-				"\n"
-				"Note : Unknown Arguments are silently ignored.\n");
+				"\n");
 }
 
 string tok2str(int cnt, const char* tok[], const char* delim)
