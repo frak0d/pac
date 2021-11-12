@@ -12,3 +12,10 @@ clean          --> Removes cached package downloads.
 ```
 
 **Note:** Multiple aliases are provided for same tasks. For Example, `pac refresh` and `pac sync` are equivalent and is just a matter of personal preference.
+
+### Installation :-
+1. `git clone https://github.com/frak0d/pac`
+2. `sudo g++ -O2 -s pac/main.cpp -o /usr/bin/pac && rm -r pac`
+
+### Uninstallation :-
+1. `sudo rm /usr/bin/pac`
