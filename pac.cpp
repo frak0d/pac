@@ -10,12 +10,12 @@ void show_help()
 	printf("Usage :-\n"
 				"pac [operation] <pkg list>\n"
 				"\n"
-				"install        --> Install the specified program.\n"
+				"install/add    --> Install the specified program.\n"
 				"remove/delete  --> Removes the specified program with dependencies.\n"
 				"search/find    --> Searches for a package in package lists.\n"
 				"refresh/sync   --> Refreshes package lists.\n"
 				"upgrade/update --> Updates all packages to latest version.\n"
-				"clean          --> Removes cached package downloads.\n"
+				"clean/tidy     --> Removes cached package downloads.\n"
 				"\n");
 }
 
@@ -25,8 +25,8 @@ string tok2str(int cnt, const char* tok[], const char* delim)
 	for (int i=0 ; i < cnt ; ++i)
 	{
 		if (tok[i][0] != '-') str += tok[i];
-	   else printf("Ignoring '%s' !\n", tok[i]);
-		 
+		else printf("Ignoring '%s' !\n", tok[i]);
+		
 		if (i < cnt-1) str += delim;
 	}
 	return str;
@@ -56,7 +56,7 @@ int main(int argc, const char* argv[])
 	{
 		system(("pacman " + cmd + ' ' + pkgs).c_str());
 	}
-	elif (cmd == "install")
+	elif (cmd == "install" || cmd == "add")
 	{
 		system(("pacman -S " + pkgs).c_str());
 	}
@@ -76,7 +76,7 @@ int main(int argc, const char* argv[])
 	{
 		system(("pacman -Syu " + pkgs).c_str());
 	}
-	elif (cmd == "clean")
+	elif (cmd == "clean" || cmd == "tidy")
 	{
 		system("paccache -rk0"); // prune all cache
 		system("paccache -rk1"); // keep 1 version
