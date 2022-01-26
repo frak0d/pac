@@ -16,7 +16,8 @@ void show_help()
 				"refresh/sync   --> Refreshes package lists.\n"
 				"upgrade/update --> Updates all packages to latest version.\n"
 				"clean/tidy     --> Removes cached package downloads.\n"
-				"\n");
+				"\n"
+				"Note: You can also pass flags directly to pacman. eg. pac -Syu\n");
 }
 
 string tok2str(int cnt, const char* tok[], const char* delim)
@@ -58,7 +59,7 @@ int main(int argc, const char* argv[])
 	}
 	elif (cmd == "install" || cmd == "add")
 	{
-		system(("pacman -S " + pkgs).c_str());
+		system(("pacman -Sy " + pkgs).c_str());
 	}
 	elif (cmd == "remove" || cmd == "delete")
 	{
@@ -78,8 +79,8 @@ int main(int argc, const char* argv[])
 	}
 	elif (cmd == "clean" || cmd == "tidy")
 	{
-		system("paccache -rk0"); // prune all cache
-		system("paccache -rk1"); // keep 1 version
+		system("paccache -rk0"); 			 // prune all cache
+		system("paccache -rk1 > /dev/null"); // keep 1 version
 	}
 	else
 	{

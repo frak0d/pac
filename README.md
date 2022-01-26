@@ -12,6 +12,8 @@ search/find    --> Searches for a package in package lists.
 refresh/sync   --> Refreshes package lists.
 upgrade/update --> Updates all packages to latest version.
 clean/tidy     --> Removes cached package downloads.
+
+Note: You can also pass flags directly to pacman. eg. pac -Syu
 ```
 
 **Note:** Multiple aliases are provided for same tasks. For Example, `pac refresh` and `pac sync` are equivalent and is just a matter of personal preference.
