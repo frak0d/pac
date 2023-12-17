@@ -25,9 +25,7 @@ string tok2str(int cnt, const char* tok[], const char* delim)
 	string str;
 	for (int i=0 ; i < cnt ; ++i)
 	{
-		if (tok[i][0] != '-') str += tok[i];
-		else printf("Ignoring '%s' !\n", tok[i]);
-		
+		str += tok[i];
 		if (i < cnt-1) str += delim;
 	}
 	return str;
